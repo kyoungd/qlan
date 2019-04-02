@@ -32,8 +32,9 @@ const styles = theme => ({
     marginTop: theme.spacing.unit * 3,
     overflowX: 'auto',
   },
-  table: {
-    minWidth: 600,
+  tableCellField: {
+    paddingLeft: 0,
+    paddingRight: 10
   }
 });
 
@@ -112,11 +113,11 @@ class OutlinedTextFields extends React.Component {
           <Table className={classes.table}>
             <TableHead>
               <TableRow>
-                <TableCell>UNION</TableCell>
-                <TableCell>NON-UNION</TableCell>
+                <TableCell className={classes.tableCellField}>&nbsp;UNION</TableCell>
+                <TableCell className={classes.tableCellField}>&nbsp;NON-UNION</TableCell>
               </TableRow>
               <TableRow>
-                <TableCell>
+                <TableCell className={classes.tableCellField}>
                   <TextField
                     id="u1"
                     label="NA Complete Fixture"
@@ -131,7 +132,7 @@ class OutlinedTextFields extends React.Component {
                     variant="outlined"
                   />
                 </TableCell>
-                <TableCell align="left">
+                <TableCell className={classes.tableCellField}>
                   <TextField
                     id="n1"
                     label="NA Complete Fixture"
@@ -148,7 +149,7 @@ class OutlinedTextFields extends React.Component {
                 </TableCell>
               </TableRow>
               <TableRow>
-                <TableCell>
+                <TableCell className={classes.tableCellField}>
                   <TextField
                     id="u2"
                     label="NA Retrofit Kits"
@@ -163,7 +164,7 @@ class OutlinedTextFields extends React.Component {
                     variant="outlined"
                   />
                 </TableCell>
-                <TableCell>
+                <TableCell className={classes.tableCellField}>
                   <TextField
                     id="n2"
                     label="NA Retrofit Kits"
@@ -180,7 +181,7 @@ class OutlinedTextFields extends React.Component {
                 </TableCell>
               </TableRow>
               <TableRow>
-                <TableCell>
+                <TableCell className={classes.tableCellField}>
                   <TextField
                     id="u3"
                     label="NA No Fixture"
@@ -195,7 +196,7 @@ class OutlinedTextFields extends React.Component {
                     variant="outlined"
                   />
                 </TableCell>
-                <TableCell>
+                <TableCell className={classes.tableCellField}>
                   <TextField
                     id="n3"
                     label="NA No Fixture"
@@ -212,7 +213,7 @@ class OutlinedTextFields extends React.Component {
                 </TableCell>
               </TableRow>
               <TableRow>
-                <TableCell>
+                <TableCell className={classes.tableCellField}>
                   <TextField
                     id="u4"
                     label="A No Fixture"
@@ -227,7 +228,7 @@ class OutlinedTextFields extends React.Component {
                     variant="outlined"
                   />
                 </TableCell>
-                <TableCell>
+                <TableCell className={classes.tableCellField}>
                   <TextField
                     id="n4"
                     label="A No Fixture"
@@ -244,7 +245,7 @@ class OutlinedTextFields extends React.Component {
                 </TableCell>
               </TableRow>
               <TableRow>
-                <TableCell>
+                <TableCell className={classes.tableCellField}>
                   <TextField
                     id="u5"
                     label="A Complete Fixture"
@@ -259,7 +260,7 @@ class OutlinedTextFields extends React.Component {
                     variant="outlined"
                   />
                 </TableCell>
-                <TableCell>
+                <TableCell className={classes.tableCellField}>
                   <TextField
                     id="n5"
                     label="A Complete Fixture"
