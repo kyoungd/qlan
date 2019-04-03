@@ -1,12 +1,12 @@
 {
-  "uNACompleteFixture": 2.5,
-  "uNARetrofitKits": 2.5,
-  "uNANoFixture": 2.5,
-  "uANoFixture": 2.5,
-  "uACompleteFixture": 2.5,
-  "nNACompleteFixture": 2.5,
-  "nNARetrofitKits": 2.5,
-  "nNANoFixture": 2.5,
-  "nANoFixture": 2.5,
-  "nACompleteFixture": 2.5
+  "uNACompleteFixture": 3.53,
+  "uNARetrofitKits": 2.66,
+  "uNANoFixture": 0.97,
+  "uANoFixture": 4.73,
+  "uACompleteFixture": 6.27,
+  "nNACompleteFixture": 3.25,
+  "nNARetrofitKits": 2.46,
+  "nNANoFixture": 0.93,
+  "nANoFixture": 4.39,
+  "nACompleteFixture": 5.81
 }

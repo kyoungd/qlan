@@ -35,6 +35,9 @@ const styles = theme => ({
   tableCellField: {
     paddingLeft: 0,
     paddingRight: 10
+  },
+  estimate: {
+    fontSize: 18
   }
 });
 
@@ -59,16 +62,16 @@ const currencies = [
 
 class OutlinedTextFields extends React.Component {
   state = {
-    uNACompleteFixture: 0,
-    uNARetrofitKits: 0,
-    uNANoFixture: 0,
-    uANoFixture: 0,
-    uACompleteFixture: 0,
-    nNACompleteFixture: 0,
-    nNARetrofitKits: 0,
-    nNANoFixture: 0,
-    nANoFixture: 0,
-    nACompleteFixture: 0,
+    uNACompleteFixture: '',
+    uNARetrofitKits: '',
+    uNANoFixture: '',
+    uANoFixture: '',
+    uACompleteFixture: '',
+    nNACompleteFixture: '',
+    nNARetrofitKits: '',
+    nNANoFixture: '',
+    nANoFixture: '',
+    nACompleteFixture: '',
     age: '',
   };
 
@@ -86,11 +89,8 @@ class OutlinedTextFields extends React.Component {
       'nACompleteFixture',
     ]
 
-    console.log(this.state['uNACompleteFixture']);
-    console.log(setup['uNACompleteFixture']);
-    let values = items.map(m => this.state[m] * setup[m]);
+    let values = items.map(m => (this.state[m] === '' ? 0 : this.makeNumber(this.state[m])) * setup[m]);
     let value =  values.reduce((total, value) => total + value);
-    console.log('---------------', value);
     return value;
   }
 
@@ -98,10 +98,32 @@ class OutlinedTextFields extends React.Component {
     return `${num.toFixed(2)}`;
   }
 
+  numberWithCommas = x => {
+    var parts = x.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
+  }
+
+  makeNumber = x => {
+    return x.replace(/[-+()\s,]/g, '');
+  }
+
+  isNumeric = (value) => {
+    return /^-{0,1}\d+$/.test(value);
+  }
+
   handleChange = name => event => {
-    this.setState({
-      [name]: event.target.value,
-    });
+    let val = this.makeNumber(event.target.value);
+    if (val === '') {
+      this.setState({
+        [name]: '',
+      });
+    }
+    else if (this.isNumeric(val)) {
+      this.setState({
+        [name]: this.numberWithCommas(val),
+      });
+    }
   };
 
   render() {
@@ -123,7 +145,7 @@ class OutlinedTextFields extends React.Component {
                     label="NA Complete Fixture"
                     value={this.state.uNACompleteFixture}
                     onChange={this.handleChange('uNACompleteFixture')}
-                    type="number"
+                    type="text"
                     className={classes.textField}
                     InputLabelProps={{
                       shrink: true,
@@ -138,7 +160,7 @@ class OutlinedTextFields extends React.Component {
                     label="NA Complete Fixture"
                     value={this.state.nNACompleteFixture}
                     onChange={this.handleChange('nNACompleteFixture')}
-                    type="number"
+                    type="text"
                     className={classes.textField}
                     InputLabelProps={{
                       shrink: true,
@@ -155,7 +177,7 @@ class OutlinedTextFields extends React.Component {
                     label="NA Retrofit Kits"
                     value={this.state.uNARetrofitKits}
                     onChange={this.handleChange('uNARetrofitKits')}
-                    type="number"
+                    type="text"
                     className={classes.textField}
                     InputLabelProps={{
                       shrink: true,
@@ -170,7 +192,7 @@ class OutlinedTextFields extends React.Component {
                     label="NA Retrofit Kits"
                     value={this.state.nNARetrofitKits}
                     onChange={this.handleChange('nNARetrofitKits')}
-                    type="number"
+                    type="text"
                     className={classes.textField}
                     InputLabelProps={{
                       shrink: true,
@@ -187,7 +209,7 @@ class OutlinedTextFields extends React.Component {
                     label="NA No Fixture"
                     value={this.state.uNANoFixture}
                     onChange={this.handleChange('uNANoFixture')}
-                    type="number"
+                    type="text"
                     className={classes.textField}
                     InputLabelProps={{
                       shrink: true,
@@ -202,7 +224,7 @@ class OutlinedTextFields extends React.Component {
                     label="NA No Fixture"
                     value={this.state.nNANoFixture}
                     onChange={this.handleChange('nNANoFixture')}
-                    type="number"
+                    type="text"
                     className={classes.textField}
                     InputLabelProps={{
                       shrink: true,
@@ -219,7 +241,7 @@ class OutlinedTextFields extends React.Component {
                     label="A No Fixture"
                     value={this.state.uANoFixture}
                     onChange={this.handleChange('uANoFixture')}
-                    type="number"
+                    type="text"
                     className={classes.textField}
                     InputLabelProps={{
                       shrink: true,
@@ -234,7 +256,7 @@ class OutlinedTextFields extends React.Component {
                     label="A No Fixture"
                     value={this.state.nANoFixture}
                     onChange={this.handleChange('agnANoFixturee')}
-                    type="number"
+                    type="text"
                     className={classes.textField}
                     InputLabelProps={{
                       shrink: true,
@@ -251,7 +273,7 @@ class OutlinedTextFields extends React.Component {
                     label="A Complete Fixture"
                     value={this.state.uACompleteFixture}
                     onChange={this.handleChange('uACompleteFixture')}
-                    type="number"
+                    type="text"
                     className={classes.textField}
                     InputLabelProps={{
                       shrink: true,
@@ -266,7 +288,7 @@ class OutlinedTextFields extends React.Component {
                     label="A Complete Fixture"
                     value={this.state.nACompleteFixture}
                     onChange={this.handleChange('nACompleteFixture')}
-                    type="number"
+                    type="text"
                     className={classes.textField}
                     InputLabelProps={{
                       shrink: true,
@@ -277,8 +299,8 @@ class OutlinedTextFields extends React.Component {
                 </TableCell>
               </TableRow>
               <TableRow>
-                <TableCell align="right">Subtotal</TableCell>
-                <TableCell align="left">{this.ccyFormat(this.subtotal())}</TableCell>
+                <TableCell align="right">ESTIMATE</TableCell>
+                <TableCell align="left" className={classes.estimate}>${this.numberWithCommas(this.ccyFormat(this.subtotal()))}</TableCell>
               </TableRow>
             </TableHead>
           </Table>
