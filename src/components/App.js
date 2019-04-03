@@ -255,7 +255,7 @@ class OutlinedTextFields extends React.Component {
                     id="n4"
                     label="A No Fixture"
                     value={this.state.nANoFixture}
-                    onChange={this.handleChange('agnANoFixturee')}
+                    onChange={this.handleChange('nANoFixture')}
                     type="text"
                     className={classes.textField}
                     InputLabelProps={{
