@@ -34,6 +34,10 @@ const styles = theme => ({
   },
   tableCellField: {
     paddingLeft: 0,
+    paddingRight: 4
+  },
+  tableCellHeader: {
+    paddingLeft: 10,
     paddingRight: 10
   },
   estimate: {
@@ -135,8 +139,8 @@ class OutlinedTextFields extends React.Component {
           <Table className={classes.table}>
             <TableHead>
               <TableRow>
-                <TableCell className={classes.tableCellField}>&nbsp;UNION</TableCell>
-                <TableCell className={classes.tableCellField}>&nbsp;NON-UNION</TableCell>
+                <TableCell className={classes.tableCellHeader}>&nbsp;UNION</TableCell>
+                <TableCell className={classes.tableCellHeader}>&nbsp;NON-UNION</TableCell>
               </TableRow>
               <TableRow>
                 <TableCell className={classes.tableCellField}>
