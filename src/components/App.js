@@ -1,11 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
-import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
@@ -33,8 +30,7 @@ const styles = theme => ({
     overflowX: 'auto',
   },
   tableCellField: {
-    paddingLeft: 0,
-    paddingRight: 4
+    padding: '6px 2px !important'
   },
   tableCellHeader: {
     paddingLeft: 10,
@@ -44,25 +40,6 @@ const styles = theme => ({
     fontSize: 18
   }
 });
-
-const currencies = [
-  {
-    value: 'USD',
-    label: '$',
-  },
-  {
-    value: 'EUR',
-    label: '€',
-  },
-  {
-    value: 'BTC',
-    label: '฿',
-  },
-  {
-    value: 'JPY',
-    label: '¥',
-  },
-];
 
 class OutlinedTextFields extends React.Component {
   state = {
