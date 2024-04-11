@@ -34,10 +34,16 @@ const styles = theme => ({
   },
   tableCellHeader: {
     paddingLeft: 10,
-    paddingRight: 10
+    paddingRight: 10,
+    fontSize: 16, // Larger font size for readability
+    fontWeight: 'bold', // Bold for header emphasis
+    color: '#333', // Darker font color for contrast
+    borderBottom: '1px solid #ddd', // Subtle separation line
   },
   estimate: {
-    fontSize: 18
+    fontSize: 18,
+    fontWeight: '600', // Slightly bolder for emphasis
+    color: '#1976d2', // Brand color for visual interest
   }
 });
 
@@ -280,7 +286,7 @@ class OutlinedTextFields extends React.Component {
                 </TableCell>
               </TableRow>
               <TableRow>
-                <TableCell align="right">ESTIMATE</TableCell>
+                <TableCell align="right" className={classes.tableCellHeader} >ESTIMATE</TableCell>
                 <TableCell align="left" className={classes.estimate}>${this.numberWithCommas(this.ccyFormat(this.subtotal()))}</TableCell>
               </TableRow>
             </TableHead>
